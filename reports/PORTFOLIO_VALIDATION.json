@@ -1,0 +1,45 @@
+{
+  "validationVersion": "portfolio_index_validation_v1",
+  "validatedAt": "2026-08-08T00:00:00+09:00",
+  "sourceMutation": 0,
+  "claimRegistry": {
+    "claims": 20,
+    "missingMarkers": 0,
+    "valueMismatches": 0
+  },
+  "index": {
+    "brokenLocalLinks": 0,
+    "missingReferencedImages": 0,
+    "absoluteLocalPaths": 0,
+    "credentialLiterals": 0,
+    "gitDiffCheckErrors": 0
+  },
+  "publicEvidenceRepository": {
+    "notebooks": 5,
+    "notebookRestartRunAllFailures": 0,
+    "notebookSchemaOrAstFailures": 0,
+    "pytestPassed": 5,
+    "pytestFailed": 0,
+    "manifestHashMismatch": 0,
+    "manifestByteMismatch": 0,
+    "manifestRowMismatch": 0,
+    "brokenFK": 0,
+    "duplicateIds": 0,
+    "invalidCoordinates": 0,
+    "missingWhyItMatters": 0,
+    "secretFindings": 0,
+    "missingLinks": 0
+  },
+  "vercelEvidence": {
+    "url": "https://mbn-guide-front.vercel.app/",
+    "verifiedRoutes": [
+      "/guide",
+      "/place/place_0001",
+      "/discover",
+      "/live"
+    ],
+    "screenshots": 4,
+    "deployedReleaseId": "mbn-guide-701011c9608e4524"
+  },
+  "status": "PASS"
+}

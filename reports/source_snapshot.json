@@ -1,0 +1,49 @@
+{
+  "snapshotVersion": "source_snapshot_v1",
+  "generatedAt": "2026-08-08T00:00:00+09:00",
+  "repositories": {
+    "algorithmDataSsot": {
+      "repository": "Siegfriex/mbN_GUIDE",
+      "branch": "nbM_GUIDE_PY",
+      "publicHead": "09a059859cc42121e96cb266951af91108e577eb",
+      "localHeadAtReconciliation": "69cb89918134455c6031b62ab6d200c4b9c0daeb",
+      "localHeadPubliclyReachable": false,
+      "mutationPolicy": "READ_ONLY"
+    },
+    "publicEvidence": {
+      "repository": "Siegfriex/nbm_guide_py",
+      "baseBranch": "main",
+      "baseHeadAtReconciliation": "20f4a50ac38d27e30f2714e1fa282244ab2eb08d"
+    },
+    "portfolioIndex": {
+      "repository": "Siegfriex/nbm_guides",
+      "baseBranch": "main",
+      "baseHeadAtReconciliation": "87c1a26da55c123781655856e03973a7442ca75d"
+    }
+  },
+  "release": {
+    "releaseId": "mbn-guide-701011c9608e4524",
+    "releaseProfile": "MINIMAL_SAFE_RELEASE_V1_1",
+    "releaseSourceCommit": "afe4d570cea3aa17ac05fe98e85cf5cc0a6a8439",
+    "localBuildCommit": "69cb89918134455c6031b62ab6d200c4b9c0daeb",
+    "localBuildCommitPubliclyReachable": false,
+    "publicEvidence": [
+      "data/public_release/mbn-guide-701011c9608e4524/manifest.json",
+      "data/evidence/upstream_gates/m14r1_final_gate.json",
+      "https://mbn-guide-front.vercel.app/"
+    ]
+  },
+  "embedding": {
+    "modelId": "BAAI/bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "dimension": 1024
+  },
+  "versions": {
+    "pipelineVersion": "m7-m12-frozen",
+    "taxonomyVersion": "docs_product_taxonomy_v2.1",
+    "rankingVersion": "ranking_v1",
+    "productContractVersion": "docs_product_ssot_v2.1_user_supplied",
+    "tourApiTechnicalManual": "v4.4",
+    "tourApiApplicationManual": "v3.3"
+  }
+}
