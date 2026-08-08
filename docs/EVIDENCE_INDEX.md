@@ -1,47 +1,41 @@
-# MBN GUIDE portfolio evidence index
+# MBN GUIDE 증거 인덱스
 
-This index makes the portfolio claims inspectable without copying sensitive or
-copyrighted material into this repository. Paths below are relative to the
-authorized local `mbN_GUIDE` checkout supplied through `MBN_GUIDE_PY_ROOT`.
+## 한눈에 찾기
 
-## Pinned release
+| 질문 | 공개 근거 |
+| --- | --- |
+| 수치가 실제 artifact와 연결되는가 | [`portfolio_claims.json`](../reports/portfolio_claims.json) |
+| 공개·로컬 source가 왜 다른가 | [`EVIDENCE_RECONCILIATION.md`](../reports/EVIDENCE_RECONCILIATION.md) |
+| release bytes를 재검증할 수 있는가 | [`nbm_guide_py`](https://github.com/Siegfriex/nbm_guide_py/tree/agent/portfolio-final-evidence) |
+| 제품에서 실제 보이는가 | [Vercel GUIDE](https://mbn-guide-front.vercel.app/guide), [`assets/vercel`](../assets/vercel/) |
+| 원천 알고리즘과 milestone은 어디인가 | [`mbN_GUIDE/nbM_GUIDE_PY`](https://github.com/Siegfriex/mbN_GUIDE/tree/nbM_GUIDE_PY) |
 
-| Item | Path / value | Check |
+## 공개 release
+
+- releaseId: `mbn-guide-701011c9608e4524`
+- profile: `MINIMAL_SAFE_RELEASE_V1_1`
+- source lineage commit: `afe4d570cea3aa17ac05fe98e85cf5cc0a6a8439`
+- local-only build commit: `69cb89918134455c6031b62ab6d200c4b9c0daeb`
+- manifest SHA-256: `7e082df9ee9e8a0b1328c951b8df915fa2bc73a8bbc9c6eaf1b5733d967ef4da`
+- sanitized bundle: `nbm_guide_py/data/public_release/mbn-guide-701011c9608e4524/`
+
+## Stage별 근거
+
+| Stage | 공개 evidence | 핵심 QA |
 | --- | --- | --- |
-| Release ID | `data/90_exports/frontend/mbn-guide-701011c9608e4524/` | Immutable frontend payload directory |
-| Manifest | `.../manifest.json` | Per-file rows, bytes, SHA-256 |
-| Payloads | `articles.json`, `places.json`, `stories.json`, `recommendations.json`, `related_articles.json`, `taxonomy.json`, `quality_report.json` | Recomputed by the notebook and verifier script |
-| Projection gate | `data/80_quality/mbn/m14r1/run_20260808_m14r1_frontend_projection_hotfix/m14r1_projection_gate.json` | Build-level projection status |
-| Validation gate | `data/80_quality/mbn/m14r1/run_20260808_m14r1_validation/m14r1_final_gate.json` | `PASS_WITH_WARNINGS`, `FRONTEND_READY`, critical counters 0 |
+| M7 Geo | `geo_quality_report.json`, geo sample | invalid coordinate / broken provenance 0 |
+| M8 Embedding | `m8_final_gate.json` | NaN / Inf / zero / metadata mismatch 0 |
+| M9 Semantic | gate, quality report, relation sample | self / duplicate / FK / formula mismatch 0 |
+| M11–M12 | gate, ranking sample | candidate loss / rank gap / reason mismatch 0 |
+| M14R1 | sanitized bundle, validation gate | schema / FK / hash / byte / secret 0 |
+| Vercel | 4 route screenshot, bundle SHA | deployed releaseId 확인 |
 
-## Data-engine lineage
+## 공개에서 제외한 자료
 
-| Stage | Milestone | Evidence produced |
-| --- | --- | --- |
-| Geo | M7 | Canonical place/event objects, map eligibility, relations, provider evidence |
-| Embedding | M8 | Pinned BGE-M3 vectors, metadata alignment and numerical QA |
-| Semantic retrieval | M9 | Exact cosine relation artifacts and independent formula audit |
-| Candidate + ranking | M10–M12 | Evidence table, candidate union, feature-aware ranking, reason table |
-| Projection + validation | M13–M14R1 | Immutable JSON bundle, manifest, schema/FK/hash/secret checks |
+- MBN 전체 기사 본문과 raw HTML
+- Provider raw response와 credential
+- embedding 전체 vector와 model weight/cache
+- 내부 LLM prompt/response와 adjudication trace
+- local-only M15 checkpoint의 비공개 artifact
 
-## Frontend boundary
-
-The live Vercel URL is [mbn-guide-front.vercel.app](https://mbn-guide-front.vercel.app).
-The portfolio records route reachability and deployed UI audit evidence, but it
-does not claim a frontend release pointer that has not been independently
-validated against the M14R1 JSON bundle.
-
-## What is intentionally excluded
-
-- raw MBN article body/HTML and provider responses;
-- API keys, credentials, and local secret configuration;
-- BGE-M3 weights, embedding arrays, matrix caches, and LLM prompts/responses;
-- synthetic StoryBundle, Event-to-Place, Article-to-Story, or editorial-label-
-  to-product-taxonomy coercions.
-
-## Reproduction contract
-
-Run `notebooks/MBN_GUIDE_PORTFOLIO_REPRODUCIBILITY.ipynb` or
-`scripts/verify_portfolio_snapshot.py` against the authorized source checkout.
-Both are read-only: no crawl, provider request, embedding, LLM invocation,
-release rewrite, or frontend mutation occurs.
+세부 이용 조건은 [`DATA_NOTICE.md`](../DATA_NOTICE.md)를 확인하십시오.
